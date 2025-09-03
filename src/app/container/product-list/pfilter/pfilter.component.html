@@ -1,0 +1,12 @@
+<div class="pfilter-container">
+  <span><strong>Filters:</strong> </span>
+
+  <input type="radio" name="Filters" value="all" [(ngModel)]="selectedFilterRadioButton" (change)="onSelectedFilterRadioButton()">
+  <span>{{ 'All (' + all + ')' }}</span>
+
+  <input type="radio" name="Filters" value="InStock" [(ngModel)]="selectedFilterRadioButton" (change)="onSelectedFilterRadioButton()">
+  <span>{{'In Stock ('+ inStock +')'}}</span>
+  <input type="radio" name="Filters" value="OutofStock" [(ngModel)]="selectedFilterRadioButton" (change)="onSelectedFilterRadioButton()">
+  <span>{{'Out of Stock ('+outStock +')'}}</span>
+
+</div>

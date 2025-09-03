@@ -1,0 +1,28 @@
+<app-pfilter 
+[all]="totalNumberOfProduct" 
+[inStock]="totalNumberOfInStock" [outStock]="totalNumberOfOutStock"
+></app-pfilter>
+<div class="ekart--products--container">
+  <div class="ekart--product--item" *ngFor="let list of products" [ngStyle]="{backgroundColor: '#E2E2E2'}">
+    <div class="ekart-wishlist-sale-container">
+        <div class="ekart--add--to--wishlist">
+          <fa-icon [icon]="hearts"></fa-icon>
+        </div>
+        <div class="ekart-on-sale-tag" *ngIf="list.discountPrice">{{(100- (list.discountPrice / list.price * 100)).toFixed(2)}}</div>
+      </div>
+      <div class="ekart--product--image">
+          <img [src]="list.imageURL"  class="ekart--product--image">
+      </div>
+      <div class="ekart--add--to--price">
+          #{{list.price}}
+      </div>
+      <div class="ekart--product--name">{{list.name}}</div>
+      <div class="ekart--product--category">{{list.gender}} . {{list.category}} . {{list.brand}}</div>
+      <div class="ekart--product--available-colors">{{list.color.length}} Colors . Best Seller</div>
+      <div
+      class="ekart--products--avaliavility" [ngStyle]="{fontWeight: 'bold', color: list.is_in_inventory? 'green': 'blue'}">
+      <!-- we ngStyle is an attribute directives is to set inline css dynamically on html using typescript expression -->
+        {{list.is_in_inventory?'Stock Is Available': 'Stock Is Not available'}}
+      </div>
+  </div>
+</div>

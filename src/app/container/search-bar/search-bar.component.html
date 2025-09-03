@@ -1,0 +1,9 @@
+<!-- This uses both data binding[value] and event binding (input)-->
+<div class="vera-search-product">
+  <input class="vera-search-product-input" [value]="searchText" (input)="updateSearchText($event)">
+  <button [ngClass]="{'btn': true, 'btn-search': searchText, 'btn-search-disabled': !searchText}">Search</button>
+</div>
+<div class="vera-search-result-for">
+  <p *ngIf="searchText != '' "><strong>Search result for: </strong>{{searchText}}</p>
+  <!-- ngIf is structural directive use to add or remove dom element -->
+</div>
